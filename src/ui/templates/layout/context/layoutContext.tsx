@@ -1,6 +1,9 @@
 import React, { createContext, useState } from "react";
-
-const LayoutContext = createContext({});
+type LayoutContent = {
+  linearProgress: boolean
+  setLinearProgress: (flag: boolean) => void
+}
+const LayoutContext = createContext<LayoutContent>({ linearProgress: false, setLinearProgress: () => { } });
 
 function LayoutProvider(props: any) {
   const [linearProgress, setLinearProgress] = useState(false);

@@ -2,10 +2,11 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import Link from '../src/ui/molecules/Link';
-import { useRouter } from 'next/router'
+// import Link from '../src/ui/molecules/Link';
+import Link from '@material-ui/core/Link';
+import { useRouter } from 'next/router';
 
-export default function Index(props: any) {
+export default function Index() {
     const router = useRouter();
     return (
         <Container maxWidth="sm">

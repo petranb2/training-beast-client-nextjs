@@ -6,7 +6,7 @@ import Footer from "./footer";
 import ButtonAppBar from "./AppButtonBar";
 import Grid from "@material-ui/core/Grid";
 import { LayoutProvider } from "./context/layoutContext";
-import { AuthProvider } from "../../../domain/context/authContext";
+import { AuthProvider } from "../user/context/authContext";
 
 const useStyles = makeStyles((theme) => ({
     appBar: {

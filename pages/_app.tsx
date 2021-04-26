@@ -14,7 +14,7 @@ export default function MyApp(props: any) {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles) {
-      jssStyles.parentElement.removeChild(jssStyles);
+      jssStyles?.parentElement?.removeChild(jssStyles);
     }
   }, []);
 
@@ -28,7 +28,7 @@ export default function MyApp(props: any) {
         <SnackbarProvider
           maxSnack={3}
           anchorOrigin={{
-            vertical: "bottom",
+            vertical: "top",
             horizontal: "center",
           }}
         >

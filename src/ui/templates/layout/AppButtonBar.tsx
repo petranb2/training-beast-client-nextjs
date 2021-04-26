@@ -12,7 +12,8 @@ import Container from "@material-ui/core/Container";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import { useRouter } from 'next/router'
 import Head from 'next/head'
-import { AuthContext } from "../../../domain/context/authContext";
+import Image from 'next/image'
+import { AuthContext } from "../user/context/authContext";
 import { LayoutContext } from "./context/layoutContext";
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -38,7 +39,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     }
 }));
 
-function ButtonAppBar(props: any) {
+function ButtonAppBar() {
     const router = useRouter()
     const MAIN_MENU = "MAIN_MENU";
     const SIDE_MENU = "SIDE_MENU";
@@ -48,11 +49,11 @@ function ButtonAppBar(props: any) {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [anchorSideMenuEl, setAnchorSideMenuEl] = React.useState(null);
     const open = Boolean(anchorSideMenuEl);
-    const handleClick = (event) => {
+    const handleClick = (event: any) => {
         setAnchorEl(event.currentTarget);
     };
 
-    const redirect = (route, menu) => {
+    const redirect = (route: string, menu: string) => {
         router.push(route);
         if (menu === MAIN_MENU) {
             setAnchorEl(null);
@@ -62,7 +63,7 @@ function ButtonAppBar(props: any) {
         }
     };
 
-    const handleMenu = (event) => {
+    const handleMenu = (event: any) => {
         setAnchorSideMenuEl(event.currentTarget);
     };
 
@@ -124,10 +125,8 @@ function ButtonAppBar(props: any) {
 
                         {/* <img alt="dragon" src={require('../assets/head_no_glow.png')} className={classes.logo} /> */}
                         <div style={{ flexGrow: 1 }}>
-                            <img alt="dragon" src={'https://bucket.trainingbeast.co/logo/text.png'} className={classes.logo} style={{
-                                width: "220px",
-                                height: '36px'
-                            }} />
+                            <Image alt="dragon" loading='eager' src={'/text.png'} priority className={classes.logo} width={"220px"}
+                                height={"36px"} />
                         </div>
 
 
@@ -147,7 +146,7 @@ function ButtonAppBar(props: any) {
                                     color="inherit"
                                 >
                                     <Avatar
-                                        alt={authContext.username.toUpperCase()}
+                                        alt={authContext?.username?.toUpperCase()}
                                         src={`https://thebeast-assets.ams3.cdn.digitaloceanspaces.com/${authContext.profilePic}`}
                                     />
                                 </IconButton>
@@ -203,7 +202,7 @@ function ButtonAppBar(props: any) {
                     </Toolbar>
                 </Container>
             </AppBar>
-            {layoutContext.linearProgress && <LinearProgress className={classes.linearProgress} />}
+            {layoutContext.linearProgress && <LinearProgress />}
         </div>
     );
 }
