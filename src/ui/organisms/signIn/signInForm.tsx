@@ -89,9 +89,7 @@ export default function SignInForm(props: any) {
                     <Grid container justify="flex-end">
                         <Grid item>
                             <Link
-                                href="#"
-                                onClick={() => props.history.push("/signUp")}
-                                variant="body2"
+                                href="/sign-up" color='primary'
                             >
                                 Don't have an account? Sign up
                             </Link>
