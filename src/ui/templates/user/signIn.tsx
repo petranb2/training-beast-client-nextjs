@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-import { makeStyles, Theme } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Image from 'next/image'
 import { LayoutContext } from "../layout/context/layoutContext";
@@ -10,38 +9,10 @@ import SignInForm from "../../organisms/signIn/signInForm";
 import { signInCase } from "../../../core/user/case";
 import { useSnackbar } from 'notistack';
 import { useRouter } from 'next/router'
-
-const useStyles = makeStyles((theme: Theme) => ({
-    paper: {
-        marginTop: theme.spacing(3),
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-    },
-    root: {
-        backgroundColor: "#000000",
-        backgroundAttachment: "fixed",
-        backgroundSize: "cover",
-    },
-    avatar: {
-        margin: theme.spacing(1),
-        backgroundColor: theme.palette.secondary.main,
-    },
-    form: {
-        width: "100%", // Fix IE 11 issue.
-        marginTop: theme.spacing(3),
-    },
-    submit: {
-        margin: theme.spacing(3, 0, 2),
-    },
-    logo: {
-        maxWidth: "200px",
-        marginBottom: theme.spacing(3),
-    }
-}));
+import getStyle from "./signIn.style";
 
 export default function SignIn() {
-    const classes = useStyles();
+    const classes = getStyle();
     const { enqueueSnackbar } = useSnackbar();
     const router = useRouter();
     const layoutContext = useContext(LayoutContext);
@@ -68,7 +39,7 @@ export default function SignIn() {
             <Container component="section" maxWidth="xs">
                 <Box border={1}>
                     <div className={classes.paper}>
-                        <Image alt="dragon" loading='eager' src={'/head_no_glow.png'} priority className={classes.logo} width={"200px"}
+                        <Image alt="dragon" quality={100} src={'/head_no_glow.png'}  className={classes.logo} width={"200px"}
                             height={"210px"} />
                         <Typography component="h2" variant="h2" style={{ float: 'left' }}>
                             Sign In
