@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { makeStyles, Theme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
+import Button from '@material-ui/core/Button';
 import Toolbar from "@material-ui/core/Toolbar";
-import Hidden from "@material-ui/core/Hidden";
+import Link from '@material-ui/core/Link';
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
 import Avatar from "@material-ui/core/Avatar";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -46,12 +46,9 @@ function ButtonAppBar() {
     const layoutContext = useContext(LayoutContext);
     const authContext = useContext(AuthContext);
     const classes = useStyles();
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [, setAnchorEl] = React.useState(null);
     const [anchorSideMenuEl, setAnchorSideMenuEl] = React.useState(null);
     const open = Boolean(anchorSideMenuEl);
-    const handleClick = (event: any) => {
-        setAnchorEl(event.currentTarget);
-    };
 
     const redirect = (route: string, menu: string) => {
         router.push(route);
@@ -80,62 +77,10 @@ function ButtonAppBar() {
             <AppBar position="static">
                 <Container maxWidth="lg" disableGutters>
                     <Toolbar>
-                        {false && (
-                            <Hidden>
-                                <IconButton
-                                    edge="start"
-                                    className={classes.menuButton}
-                                    color="inherit"
-                                    aria-label="menu"
-                                    onClick={handleClick}
-                                >
-                                    <MenuIcon />
-                                </IconButton>
-                                <Menu
-                                    id="simple-menu"
-                                    anchorEl={anchorEl}
-                                    keepMounted
-                                    open={Boolean(anchorEl)}
-                                    onClose={handleClose}
-                                    PaperProps={{
-                                        style: { maxWidth: "1250px", width: "calc(100% - 2rem)" },
-                                    }}
-                                    className={classes.mainMenu}
-                                >
-                                    <MenuItem onClick={() => redirect("/", MAIN_MENU)}>
-                                        Home
-                  </MenuItem>
-                                    <MenuItem onClick={() => redirect("/programs", MAIN_MENU)}>
-                                        Programms
-                  </MenuItem>
-                                    <MenuItem
-                                        onClick={() => redirect("/programs/new", MAIN_MENU)}
-                                    >
-                                        New Programm
-                  </MenuItem>
-                                    <MenuItem onClick={() => redirect("/calendar", MAIN_MENU)}>
-                                        Calendar
-                  </MenuItem>
-                                    <MenuItem onClick={() => redirect("/sign-out", MAIN_MENU)}>
-                                        Logout
-                  </MenuItem>
-                                </Menu>
-                            </Hidden>
-                        )}
-
-                        {/* <img alt="dragon" src={require('../assets/head_no_glow.png')} className={classes.logo} /> */}
-                        <div style={{ flexGrow: 1 }}>
-                            <Image alt="dragon" loading='eager' src={'/text.png'} priority className={classes.logo} width={"220px"}
-                                height={"36px"} />
-                        </div>
-
-
-                        {!authContext.auth && (
-                            <>
-
-                            </>
-                        )}
-
+                        <Link href="/" style={{ flexGrow: 1 }}>
+                            <Image alt="dragon"  quality={100} src={'/text.png'} priority className={classes.logo} width={"247px"}
+                                height={"40px"} />
+                        </Link>
                         {authContext.auth && (
                             <>
                                 <IconButton
@@ -147,7 +92,7 @@ function ButtonAppBar() {
                                 >
                                     <Avatar
                                         alt={authContext?.username?.toUpperCase()}
-                                        src={`https://thebeast-assets.ams3.cdn.digitaloceanspaces.com/${authContext.profilePic}`}
+                                        src={`https://files.trainingbeast.co/file/tbc-files/${authContext.profilePic}`}
                                     />
                                 </IconButton>
                                 <Menu
@@ -168,36 +113,39 @@ function ButtonAppBar() {
                                 >
                                     <MenuItem onClick={() => redirect("/programs", SIDE_MENU)}>
                                         Explore programs
-                  </MenuItem>
+                                    </MenuItem>
                                     <hr />
                                     <MenuItem onClick={() => redirect("/calendar", SIDE_MENU)}>
                                         Calendar
-                  </MenuItem>
+                                    </MenuItem>
                                     <MenuItem
                                         onClick={() => redirect("/programs/new", SIDE_MENU)}
                                     >
                                         New Program Template
-                  </MenuItem>
+                                    </MenuItem>
                                     <MenuItem
                                         onClick={() =>
                                             redirect("/template/all-programs", SIDE_MENU)
                                         }
                                     >
                                         Program Templates
-                  </MenuItem>
+                                    </MenuItem>
                                     <hr />
                                     <MenuItem onClick={() => redirect("/profile", SIDE_MENU)}>
                                         Profile
-                  </MenuItem>
+                                    </MenuItem>
                                     <MenuItem onClick={() => redirect("/settings", SIDE_MENU)}>
                                         Settings
-                  </MenuItem>
+                                    </MenuItem>
                                     <hr />
                                     <MenuItem onClick={() => redirect("/sign-out", SIDE_MENU)}>
                                         Logout
-                  </MenuItem>
+                                    </MenuItem>
                                 </Menu>
                             </>
+                        )}
+                        {!authContext.auth && (
+                            <Button href="/sign-in" size="large" variant="contained" color="secondary">Sign In</Button>
                         )}
                     </Toolbar>
                 </Container>
