@@ -1,6 +1,5 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 import Footer from "./footer";
 import ButtonAppBar from "./AppButtonBar";
@@ -16,14 +15,14 @@ const useStyles = makeStyles((theme) => ({
 
 function Template(props: any) {
     let classes = useStyles();
+    console.log('layout path : ' + props.path)
     return (
         <LayoutProvider>
             <AuthProvider>
-                <CssBaseline />
                 <Grid className={classes.appBar}>
                     <ButtonAppBar />
                 </Grid>
-                <Container maxWidth="lg" disableGutters>
+                <Container maxWidth="lg" disableGutters >
                     <Grid container>
                         <main style={{ width: "100%", margin: "12px" }}>
                             {props.children}

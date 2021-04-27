@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
+import { useRouter } from 'next/router'
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { SnackbarProvider } from "notistack";
@@ -9,7 +10,8 @@ import Layout from "../src/ui/templates/layout/layout";
 
 export default function MyApp(props: any) {
   const { Component, pageProps } = props;
-
+  const router = useRouter();
+  const routePath = router.pathname;
   React.useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
@@ -34,7 +36,7 @@ export default function MyApp(props: any) {
         >
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
           <CssBaseline />
-          <Layout>
+          <Layout path={routePath}>
             <Component {...pageProps} />
           </Layout>
         </SnackbarProvider>
