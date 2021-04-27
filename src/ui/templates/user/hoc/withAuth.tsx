@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { AuthContext } from "../context/authContext";
 import { checkUserCase } from "../../../../core/user/case";
-
+// Client Side Auth
 export const withAuth = (Component: any) => {
     const Wrapper = (props: any) => {
         const authContext = useContext(AuthContext);
