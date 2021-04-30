@@ -11,7 +11,7 @@ import { LayoutContext } from "../../../templates/layout/context/layoutContext";
 import { updateShortBioCase } from "../../../../core/user/case";
 import getStyles from "./shortBio.style";
 
-function ShortBio(props) {
+function ShortBio(props: any) {
   const classes = getStyles();
   const shortBio = props.shortBio;
   const authContext = useContext(AuthContext);

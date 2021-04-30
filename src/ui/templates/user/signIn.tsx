@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import Image from 'next/image'
 import { LayoutContext } from "../layout/context/layoutContext";
 import { AuthContext } from "./context/authContext";
 import SignInForm from "../../organisms/signIn/signInForm";

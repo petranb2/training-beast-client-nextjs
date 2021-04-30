@@ -11,7 +11,7 @@ import { LayoutContext } from "../../../templates/layout/context/layoutContext";
 import { updateUsernameCase } from "../../../../core/user/case";
 import getStyles from "./username.style";
 
-function Username(props: any) {
+function Username() {
   const classes = getStyles();
   const authContext = useContext(AuthContext);
   const layoutContext = useContext(LayoutContext);
