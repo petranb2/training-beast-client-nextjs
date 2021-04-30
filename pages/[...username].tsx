@@ -1,13 +1,12 @@
 import React from "react";
 import { default as ProfileTemplate } from "../src/ui/templates/user/profile/profile"
-import { getUserProfileWithCookieCase } from "../src/core/user/case"
-import { withAuth } from "../src/ui/templates/user/hoc/withAuth";
+import { getUserProfileWithCookieCase } from "../src/core/user/case";
 
 function Profile({ profile }: any) {
     return <ProfileTemplate profile={profile} />
 }
 
-export default withAuth(Profile);
+export default Profile;
 
 // This gets called on every request
 export async function getServerSideProps(context: any) {
