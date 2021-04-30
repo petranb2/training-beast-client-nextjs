@@ -1,5 +1,4 @@
 import React from "react";
-import Image from 'next/image';
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
@@ -15,7 +14,7 @@ export default function SignUp() {
             <Container component="section" maxWidth="xs">
                 <Box border={1}>
                     <div className={classes.paper}>
-                        <Image alt="dragon" loading='eager' src={'/head_no_glow.png'} priority className={classes.logo} width={"200px"}
+                        <img alt="dragon"  src={'https://files.trainingbeast.co/file/tbc-files/logo/head_no_glow.png'}  className={classes.logo} width={"200px"}
                             height={"210px"} />
                         <Typography component="h2" variant="h2" style={{ float: 'left' }}>
                             Sign up

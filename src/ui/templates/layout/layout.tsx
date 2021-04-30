@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Footer from "./footer";
-import ButtonAppBar from "./AppButtonBar";
+import LayoutMenu from "./layoutMenu";
 import Grid from "@material-ui/core/Grid";
 import { LayoutProvider } from "./context/layoutContext";
 import { AuthProvider } from "../user/context/authContext";
@@ -15,12 +15,12 @@ const useStyles = makeStyles((theme) => ({
 
 function Template(props: any) {
     let classes = useStyles();
-    console.log('layout path : ' + props.path)
+    useEffect(() => { }, [])
     return (
         <LayoutProvider>
             <AuthProvider>
                 <Grid className={classes.appBar}>
-                    <ButtonAppBar />
+                    <LayoutMenu />
                 </Grid>
                 <Container maxWidth="lg" disableGutters >
                     <Grid container>

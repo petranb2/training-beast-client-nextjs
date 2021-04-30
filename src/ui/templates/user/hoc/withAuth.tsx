@@ -1,12 +1,10 @@
-import { useContext, useEffect } from 'react'
-import { useRouter } from 'next/router'
+import { useContext, useEffect } from 'react';
 import { AuthContext } from "../context/authContext";
 import { checkUserCase } from "../../../../core/user/case";
 // Client Side Auth
 export const withAuth = (Component: any) => {
     const Wrapper = (props: any) => {
         const authContext = useContext(AuthContext);
-        const router = useRouter();
         useEffect(() => {
             const fetchData = async () => {
                 try {
@@ -14,7 +12,7 @@ export const withAuth = (Component: any) => {
                     authContext.updateState({ ...userProfile, isAuthChecked: true });
                 } catch (error) {
                     authContext.updateState({ isAuthChecked: true });
-                    router.push('/');
+                    // window.location.replace("/");
                 }
             };
             if (!authContext.isAuthChecked) {

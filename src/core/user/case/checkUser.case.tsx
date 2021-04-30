@@ -4,7 +4,7 @@ import httpResponseCheck from "../../../infra/http/HttpResponseCheck"
 
 class CheckUserCase {
 
-    userRepo: UserRepoInterface
+    private userRepo: UserRepoInterface
 
     constructor(userRepo: UserRepoInterface) {
         this.userRepo = userRepo;

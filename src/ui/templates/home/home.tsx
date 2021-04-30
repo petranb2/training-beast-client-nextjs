@@ -3,7 +3,7 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { AuthContext } from "../user/context/authContext";
-import {withAuth} from "../user/hoc/withAuth";
+import { withAuth } from "../user/hoc/withAuth";
 
 function Home() {
     const authContext = useContext(AuthContext);

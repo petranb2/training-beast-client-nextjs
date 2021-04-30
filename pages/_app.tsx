@@ -33,6 +33,7 @@ export default function MyApp(props: any) {
             vertical: "top",
             horizontal: "center",
           }}
+          autoHideDuration={1000}
         >
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
           <CssBaseline />
@@ -44,6 +45,8 @@ export default function MyApp(props: any) {
     </React.Fragment>
   );
 }
+
+
 
 MyApp.propTypes = {
   Component: PropTypes.elementType.isRequired,

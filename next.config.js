@@ -1,5 +1,5 @@
 module.exports = {
     images: {
-      domains: ['bucket.trainingbeast.co'],
+      domains: ['files.trainingbeast.co'],
     },
   }

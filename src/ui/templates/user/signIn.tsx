@@ -39,7 +39,7 @@ export default function SignIn() {
             <Container component="section" maxWidth="xs">
                 <Box border={1}>
                     <div className={classes.paper}>
-                        <Image alt="dragon" quality={100} src={'/head_no_glow.png'}  className={classes.logo} width={"200px"}
+                        <img alt="dragon" src={'https://files.trainingbeast.co/file/tbc-files/logo/head_no_glow.png'}  className={classes.logo} width={"200px"}
                             height={"210px"} />
                         <Typography component="h2" variant="h2" style={{ float: 'left' }}>
                             Sign In

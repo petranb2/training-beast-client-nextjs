@@ -1,12 +1,12 @@
 import { UserRepoInterface } from "../repo/user.repo"
 import UserCrediantials from "../model/view/userCredentials.model";
-import httpResponseCheck from "../../../infra/http/HttpResponseCheck"
+import httpResponseCheck from "../../../infra/http/HttpResponseCheck";
 import { HttpResponse } from "../../../infra/http/HttpResponseInterface";
 import { HttpStatusCode } from "../../../infra/http/HttpStatusCodes";
 
 class SignUpCase {
 
-    userRepo: UserRepoInterface
+    private userRepo: UserRepoInterface
 
     constructor(userRepo: UserRepoInterface) {
         this.userRepo = userRepo;

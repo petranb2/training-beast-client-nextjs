@@ -12,7 +12,7 @@ interface UserRepoInterface {
 }
 
 class UserRepo implements UserRepoInterface {
-    httpClient: HttpClientInterface;
+    private httpClient: HttpClientInterface;
 
     constructor(httpClient: HttpClientInterface) {
         this.httpClient = httpClient;

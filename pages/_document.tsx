@@ -1,6 +1,7 @@
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
+import HttpClient from "../src/infra/http/HttpClient";
 import theme from '../src/ui/theme/theme';
 
 export default class MyDocument extends Document {
@@ -55,7 +56,7 @@ MyDocument.getInitialProps = async (ctx) => {
 
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
+      enhanceApp: (App) => (props) => sheets.collect(<App {...props}/>),
     });
 
   const initialProps = await Document.getInitialProps(ctx);

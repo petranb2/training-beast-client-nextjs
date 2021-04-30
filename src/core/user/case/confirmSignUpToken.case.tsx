@@ -3,7 +3,7 @@ import httpResponseCheck from "../../../infra/http/HttpResponseCheck"
 
 class ConfirmSignUpTokenCase {
 
-    userRepo: UserRepoInterface
+    private userRepo: UserRepoInterface
 
     constructor(userRepo: UserRepoInterface) {
         this.userRepo = userRepo;
