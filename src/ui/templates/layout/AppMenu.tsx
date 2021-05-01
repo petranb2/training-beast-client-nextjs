@@ -57,7 +57,7 @@ function AppMenu() {
                 onClose={handleClose}
                 className={classes.sideMenu}
             >
-                <MenuItem onClick={() => router.push("/programs")}>
+                <MenuItem onClick={() => window.location.replace("/explore")}>
                     Explore programs
                                     </MenuItem>
                 <hr />
