@@ -57,7 +57,7 @@ function AppMenu() {
                 onClose={handleClose}
                 className={classes.sideMenu}
             >
-                <MenuItem onClick={() => window.location.replace("/explore")}>
+                <MenuItem onClick={() => router.push("/explore")}>
                     Explore programs
                                     </MenuItem>
                 <hr />
@@ -77,7 +77,7 @@ function AppMenu() {
                     Program Templates
                                     </MenuItem>
                 <hr />
-                <MenuItem onClick={() => window.location.replace(`/@${authContext.username}`)}>
+                <MenuItem onClick={() => router.push(`/@${authContext.username}`)}>
                     Profile
                                     </MenuItem>
                 <MenuItem onClick={() => router.push("/profile/settings")}>
