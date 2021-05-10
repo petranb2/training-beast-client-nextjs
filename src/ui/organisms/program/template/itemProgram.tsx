@@ -22,7 +22,7 @@ export default function ItemProgram({ templateProgram }: ItemProgramProps) {
             <Card variant="outlined">
                 <CardMedia
                     className={classes.media}
-                    image={`${URLS.BUCKET}/images/charles-gaudreault.jpg`}
+                    image={`${URLS.BUCKET}/logo/tbcBackground-2.png`}
                     title="Example image"
                 />
                 <CardContent>
