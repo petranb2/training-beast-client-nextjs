@@ -7,6 +7,9 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { SnackbarProvider } from "notistack";
 import theme from '../src/ui/theme/theme';
 import Layout from "../src/ui/templates/layout/layout";
+import './calendar/react-big-calendar-addon-dnd.css';
+import './calendar/react-big-calendar.css';
+
 
 export default function MyApp(props: any) {
   const { Component, pageProps } = props;
