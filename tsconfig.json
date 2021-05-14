@@ -21,10 +21,13 @@
     "strict": true,
     "target": "esnext",
     "baseUrl": "./",
+    "rootDir": "./",
     "paths": {
       "@core/*": ["src/core/*"],
       "@ui/*": ["src/ui/*"],
       "@infra/*": ["src/infra/*"],
+      "@page/*": ["page/*"],
+      "@tests/*": ["__testSrc__/*"],
     }
   },
   "exclude": [
