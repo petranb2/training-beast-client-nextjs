@@ -1,8 +1,8 @@
-import TBCCalendar from '@ui/templates/calendar/TBCCalendar';
+import CalendarTemplate from '@ui/templates/calendar/CalendarTemplate';
 
 function Calendar() {
     return (
-        <TBCCalendar />
+        <CalendarTemplate />
     )
 }
 
