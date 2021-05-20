@@ -6,7 +6,12 @@ import { LayoutContext } from "@ui/templates/layout/context/layoutContext";
 import { useTBCSnackBar } from "@ui/templates/layout/hook/useTBCSnackBar";
 import { TrainingEventModel } from "@core/program/schedule/training/model/domain/trainingEvent.model";
 import { TrainingScheduleGroupModel } from "@core/program/schedule/training/model/view";
-import { fetchTrainingsWithDateRange, mergeNewTrainingsArrayCase, fetchTrainingGroupWithUID, changeTrainingDate } from '@core/program/schedule/training/case';
+import {
+    fetchTrainingsWithDateRange,
+    mergeNewTrainingsArrayCase,
+    fetchTrainingGroupWithUID,
+    changeTrainingDate
+} from '@core/program/schedule/training/case';
 import {
     DateRangeModel,
     CalendarViews,
@@ -15,7 +20,7 @@ import {
 } from "./dateCalendarUtil";
 import BasicCalendar from "./BasicCalendar";
 import ScheduleTrainingDialog from "@ui/organisms/program/schedule/training/scheduleTrainingDialog";
-
+import NewScheduleTrainingDialog from "@ui/organisms/program/schedule/training/newScheduleTrainingDialog";
 
 /**
  * 
@@ -31,6 +36,8 @@ function TBCCalendar() {
     const [trainingsMap, setTrainingsMap] = useState<Map<string, TrainingEventModel>>(new Map());
     const [fetchedDatesMap, setFetchedDatesMap] = useState<Map<string, DateRangeModel>>(new Map());
     const [openScheduleTraining, setOpenScheduleTraining] = useState(false);
+    const [openNewScheduleTraining, setOpenNewScheduleTraining] = useState(false);
+    const [newScheduleTrainingDate, setNewScheduleTrainingDate] = useState<Date>();
     const [selectedScheduleTraining, setSelectedScheduleTraining] = useState<TrainingScheduleGroupModel>();
 
     const onNavigate = async (date: any, view: View, dateUtil: DateUtilInterface) => {
@@ -98,7 +105,10 @@ function TBCCalendar() {
         let freshTrainingsArray = Array.from(freshTrainingsMap.values());
         setEvents(freshTrainingsArray)
     }
-
+    const onSelectSlot = (date: string) => {
+        setNewScheduleTrainingDate(new Date(date));
+        setOpenNewScheduleTraining(true);
+    }
     useEffect(() => {
         (async function run() {
             let dates = getDateRangeForView(new Date(), CalendarViews.MONTH, dateUtil);
@@ -112,12 +122,18 @@ function TBCCalendar() {
             onNavigate={onNavigate}
             onSelectTrainingEvent={onSelectTrainingEvent}
             onChangeDateTrainingEvent={onChangeDateTrainingEvent}
+            onSelectSlot={onSelectSlot}
         />
         <ScheduleTrainingDialog
             setEventCompleted={onTrainingEventCompleted}
             open={openScheduleTraining}
             data={selectedScheduleTraining}
             close={() => setOpenScheduleTraining(false)}
+        />
+        <NewScheduleTrainingDialog
+            open={openNewScheduleTraining}
+            close={() => setOpenNewScheduleTraining(false)}
+            date={newScheduleTrainingDate}
         />
     </>)
 }

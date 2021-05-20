@@ -12,6 +12,7 @@ type BasicCalendarProps = {
     onNavigate(date: any, view: View, dateUtil: DateUtilInterface): void
     onSelectTrainingEvent(trainingEvent: TrainingEventModel): void
     onChangeDateTrainingEvent(trainingEvent: TrainingEventModel, date: string): void
+    onSelectSlot(date: string): void
 }
 /**
  * 
@@ -32,7 +33,7 @@ function BasicCalendar(props: BasicCalendarProps) {
         onNavigate={(date: any, view: View) => props.onNavigate(date, view, dateUtil)}
         eventPropGetter={setStyleToTrainingEventCase.execute}
         onSelectEvent={props.onSelectTrainingEvent}
-        onSelectSlot={(slotInfo) => alert(JSON.stringify(slotInfo))}
+        onSelectSlot={({ start }) => props.onSelectSlot(start as string)}
         onEventDrop={({ event, start }) => props.onChangeDateTrainingEvent(event, start as string)}
     // onRangeChange={(range: any, view: any) => getDateRangeFromView(range, view)}
     />
