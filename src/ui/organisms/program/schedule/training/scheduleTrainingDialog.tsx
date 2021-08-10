@@ -1,5 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
+import { useRouter } from 'next/router'
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Dialog from '@material-ui/core/Dialog';
@@ -29,7 +30,8 @@ type ScheduleTrainingDialogProps = {
 function ScheduleTrainingDialog(props: ScheduleTrainingDialogProps) {
     const classes = useStyles();
     const { showError } = useTBCSnackBar();
-    const [isSubmitting, setIsSubmitting] = React.useState(false);
+    const router = useRouter()
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const layoutContext = useContext(LayoutContext);
     const { data, open, close, setEventCompleted } = props;
 
@@ -83,7 +85,7 @@ function ScheduleTrainingDialog(props: ScheduleTrainingDialogProps) {
                         </Button>)}
                 </DialogContent>
                 <DialogActions>
-                    <Button variant='outlined' color="primary">
+                    <Button variant='outlined' color="primary" onClick={() => router.replace(`program/schedule/training/${_id}`)}>
                         edit training
                     </Button>
                     <Button variant='outlined' onClick={close} color="primary">

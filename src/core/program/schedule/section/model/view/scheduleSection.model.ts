@@ -1,4 +1,4 @@
-export interface scheduleSection {
+export interface ScheduleSection {
     _id: string,
     _v: number,
     trainingScheduleUUID: string,

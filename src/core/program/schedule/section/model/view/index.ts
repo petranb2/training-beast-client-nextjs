@@ -1,5 +1,5 @@
-import { scheduleSection } from "./scheduleSection.model";
+import { ScheduleSection } from "./scheduleSection.model";
 
 export type {
-    scheduleSection
+    ScheduleSection
 }

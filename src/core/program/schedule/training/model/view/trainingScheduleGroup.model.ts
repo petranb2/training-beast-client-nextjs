@@ -1,5 +1,5 @@
 import { scheduleExercise } from "@core/program/schedule/exercise/model/view";
-import { scheduleSection } from "@core/program/schedule/section/model/view";
+import { ScheduleSection } from "@core/program/schedule/section/model/view";
 
 export interface TrainingScheduleGroupModel {
     _id: string,
@@ -11,9 +11,9 @@ export interface TrainingScheduleGroupModel {
     createdAt: string,
     updatedAt: string,
     cyclic: boolean,
-    mutliSection: boolean,
+    multiSection: boolean,
     date: string,
     status: string,
-    sections: scheduleSection[],
+    sections: ScheduleSection[],
     exercises: scheduleExercise[]
 }
