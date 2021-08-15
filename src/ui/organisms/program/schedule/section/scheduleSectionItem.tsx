@@ -51,8 +51,6 @@ export default function ScheduleSectionItem(props) {
 
     }, []);
 
-    console.info('exercisesMap ' + [...exercisesMap]);
-
     const addExercise = (newExercise: scheduleExercise) => {
         exercisesMap.set(newExercise._id, newExercise);
         setExercisesMap(exercisesMap);
@@ -124,7 +122,6 @@ export default function ScheduleSectionItem(props) {
                 </Grid>
                 <Grid item xs={12}>
                     <List component="nav" aria-label="contacts">
-                        {/* <ListExercises exercises={Array.from(exercisesMap)} /> */}
                         {renderExercises(section, exercisesMap, { update: updateExercise, delete: deleteExercise })}
                     </List>
                 </Grid>
@@ -137,17 +134,20 @@ export default function ScheduleSectionItem(props) {
 }
 
 const renderExercises = (section, exercisesData: Map<String, scheduleExercise>, exerciseOperations) => {
-    console.log("exercisesData" + [...exercisesData]);
-    console.log("section" + JSON.stringify(section));
+
     let exerciseItemsArray: JSX.Element[] = []
+
     exercisesData?.forEach((exercise: scheduleExercise, key: String) => {
+
         if (exercise.sectionScheduleUUID === section._id) {
-            console.log("exercise.sectionScheduleUUID === section._id");
-            exerciseItemsArray.push(<Grid item xs={12}>
-                <ScheduleExerciseItem key={key} section={section} exercise={exercise} updateExercise={exerciseOperations.update} deleteExercise={exerciseOperations.delete} />
-            </Grid>)
+
+            exerciseItemsArray.push(
+                <Grid item xs={12}>
+                    <ScheduleExerciseItem key={key} section={section} exercise={exercise} updateExercise={exerciseOperations.update} deleteExercise={exerciseOperations.delete} />
+                </Grid>
+            )
+
         }
     });
-    // console.log("exerciseItemsArray.size" + exerciseItemsArray.size);
     return exerciseItemsArray;
 }

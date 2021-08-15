@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from 'next/router';
-import axiosBeast from "@infra/http/axiosBeast";
-import NewScheduleTraining from "@ui/templates/program/schedule/training/newScheduleTraining";
+import TrainingScheduleGroupForm from "@ui/templates/program/schedule/training/TrainingScheduleGroupForm";
 import LinearLoader from "@ui/molecules/loaders/linearLoader";
 import { TrainingScheduleGroupModel } from "@core/program/schedule/training/model/view"
 import { useTBCSnackBar } from "@ui/templates/layout/hook/useTBCSnackBar";
+import { fetchTrainingGroupWithUID } from "@core/program/schedule/training/case";
+import { withAuth } from "@ui/templates/user/hoc/withAuth";
 
-const EditScheduleTrainingContainer = () => {
+const UpdateScheduleTrainingPage = () => {
 
     const router = useRouter();
     const { showError } = useTBCSnackBar();
     const { uuid } = router.query;
-    let trainingUUID = uuid;
+    let trainingUUID = uuid as string;
     if (uuid) {
         trainingUUID = uuid[0];
     }
@@ -20,21 +21,27 @@ const EditScheduleTrainingContainer = () => {
 
 
     useEffect(() => {
-        if (trainingUUID) {
-            axiosBeast.post('/schedule/training/fetchWithUId', { uid: trainingUUID }).then((res) => {
-                setTraining(res.data);
-            }).catch(() => {
-                showError('Something went wrong');
-            });
-        };
 
+        const fetchData = async (trainingUUID: string) => {
+            try {
+                let trainingScheduleGroup = await fetchTrainingGroupWithUID.execute(trainingUUID as string);
+                setTraining(trainingScheduleGroup);
+            } catch (e) {
+                showError('Something went wrong');
+            }
+        };
+        if (trainingUUID) {
+            fetchData(trainingUUID);
+        };
     }, [trainingUUID])
+
     if (!training) {
         return <LinearLoader />
     }
+
     return (
-        <NewScheduleTraining trainingGroup={training} />
+        <TrainingScheduleGroupForm trainingGroup={training} />
     );
 };
 
-export default EditScheduleTrainingContainer;
+export default withAuth(UpdateScheduleTrainingPage);

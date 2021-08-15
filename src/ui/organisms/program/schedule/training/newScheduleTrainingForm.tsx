@@ -5,12 +5,19 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 import FormControl from '@material-ui/core/FormControl';
 import Grid from "@material-ui/core/Grid";
-import { Formik } from "formik";
+import { Formik, FormikHelpers } from "formik";
 import * as Yup from "yup";
+import { TrainingInitialValuesModel } from "@core/program/schedule/training/model/domain"
 
-function NewScheduleTrainingForm(props: any) {
+
+type ScheduleTrainingFormProps = {
+    initialValues: TrainingInitialValuesModel,
+    submitForm: (values: {}, submitting: FormikHelpers<TrainingInitialValuesModel>) => void,
+    initialSubmit: boolean,
+}
+
+function ScheduleTrainingForm(props: ScheduleTrainingFormProps) {
     const { initialValues, submitForm, initialSubmit } = props;
-    console.log(initialValues)
     return (
         <Formik
             initialValues={initialValues}
@@ -136,4 +143,4 @@ function NewScheduleTrainingForm(props: any) {
     );
 }
 
-export default NewScheduleTrainingForm;
+export default ScheduleTrainingForm;

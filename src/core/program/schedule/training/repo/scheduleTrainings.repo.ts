@@ -1,6 +1,6 @@
 import { HttpClientInterface } from "@infra/http/HttpClientInterface";
 import ROUTES from "../util/routes";
-import { TrainingScheduleModel, StringDateRangeModel, TrainingScheduleGroupModel } from "../model/view";
+import { TrainingScheduleModel, StringDateRangeModel, TrainingScheduleGroupModel, TrainingInitialValuesModel } from "../model/view";
 import { operation } from "@core/shared/model/view";
 import { dateUtil } from "@infra/dateTime"
 
@@ -10,6 +10,8 @@ interface ScheduleTrainingsInterface {
     fetchTrainingGroupWithUID(uid: string): Promise<TrainingScheduleGroupModel>
     completeTrainingAsSchedule(uid: string): Promise<operation>
     changeTrainingDate(uid: string, date: string): Promise<TrainingScheduleGroupModel>
+    createTraining(training: TrainingInitialValuesModel): Promise<TrainingScheduleModel>
+    updateTraining(training: TrainingInitialValuesModel): Promise<TrainingScheduleModel>
 }
 
 class ScheduleTrainingsRepo implements ScheduleTrainingsInterface {
@@ -19,6 +21,28 @@ class ScheduleTrainingsRepo implements ScheduleTrainingsInterface {
         this.httpClient = httpClient;
     }
 
+    async createTraining(training: TrainingInitialValuesModel): Promise<TrainingScheduleModel> {
+        let scheduleTraining;
+        try {
+            let httpResponse = await this.httpClient.post(ROUTES.CREATE_SCHEDULE_TRAINING, { data: training });
+            scheduleTraining = httpResponse.data as TrainingScheduleModel;
+        } catch (error) {
+            throw error;
+        }
+        return scheduleTraining;
+    }
+
+    async updateTraining(training: TrainingInitialValuesModel): Promise<TrainingScheduleModel> {
+        let scheduleTraining;
+        try {
+            let httpResponse = await this.httpClient.post(ROUTES.UPDATE_SCHEDULE_TRAINING, { data: training });
+            scheduleTraining = httpResponse.data as TrainingScheduleModel;
+        } catch (error) {
+            throw error;
+        }
+        return scheduleTraining;
+    }
+    
     async changeTrainingDate(uid: string, date: string): Promise<TrainingScheduleGroupModel> {
         let scheduleTrainingGroup;
         try {

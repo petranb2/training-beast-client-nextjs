@@ -62,7 +62,13 @@ export default function ListSection(props: { training: TrainingScheduleGroupMode
         </div>
     );
 }
-const renderSections = (sectionsMap: Map<String, ScheduleSection>, training: TrainingScheduleGroupModel, addSection: UpdateSectionState, updateSection: UpdateSectionState, deleteSection: UpdateSectionState) => {
+const renderSections = (
+    sectionsMap: Map<String, ScheduleSection>,
+    training: TrainingScheduleGroupModel,
+    addSection: UpdateSectionState,
+    updateSection: UpdateSectionState,
+    deleteSection: UpdateSectionState
+) => {
     let sectionItemsArray: JSX.Element[] = []
     sectionsMap.forEach((section, key) => {
         // render only the sections with same status with training

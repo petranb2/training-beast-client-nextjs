@@ -6,21 +6,23 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import axiosBeast from "@infra/http/axiosBeast";
 import ExerciseForm from "./scheduleExerciseForm";
 
-export default function editScheduleExersiceDialog(props) {
-  const { exercise, addExercise, close } = props;
-  const createNewExercise = (values: any, { setSubmitting }: { setSubmitting: (flag: boolean) => {} }) => {
+export default function UpdateScheduleExersiceDialog(props) {
+  const { exercise, section, updateExercise, close } = props;
+  const updateScheduleExercise = (values: any, { setSubmitting }: { setSubmitting: (flag: boolean) => {} }) => {
     let { analysis, name, comments } = values;
 
     values = {
-      uid: exercise._id,
+      sectionScheduleUUID: section._id,
+      _id: exercise._id,
       analysis,
       name,
       comments,
     };
-    axiosBeast.put("/trainings/sections/exersices", values).then((res) => {
+    console.log(values);
+    axiosBeast.post("/schedule/exercises/update", values).then((res) => {
       const exersice = res.data;
       console.log(exersice);
-      addExercise(exersice);
+      updateExercise(exersice);
       setSubmitting(false);
       close();
     });
@@ -38,12 +40,14 @@ export default function editScheduleExersiceDialog(props) {
           </Typography>
         </DialogTitle>
         <DialogContent>
-          <ExerciseForm submitFunction={createNewExercise} initialValues={{
-            name: exercise.name,
-            comments: exercise.comments,
-            sport: 'running',
-            analysis: [{ sets: { v: '4', u: "sets" }, duration: { v: '30', u: "reps" }, rest: { v: '30', u: "min" }, volume: { v: '30', u: "kg" } }],
-          }} />
+          <ExerciseForm
+            submitFunction={updateScheduleExercise}
+            initialValues={{
+              name: exercise.name,
+              comments: exercise.comments,
+              sport: 'running',
+              analysis: exercise.analysis,
+            }} />
         </DialogContent>
       </Dialog>
     </div>

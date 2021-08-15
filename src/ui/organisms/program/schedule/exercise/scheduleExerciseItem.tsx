@@ -17,7 +17,7 @@ export default function SectionExersiceItem(props) {
     // }
 
     const { name, comments, analysis } = props.exercise;
-    const { section, training, exercise } = props;
+    const { section, exercise, updateExercise, deleteExercise } = props;
 
     const [openUpdateExersiceDialog, setOpenUpdateSectionDialog] = useState(
         false
@@ -89,6 +89,7 @@ export default function SectionExersiceItem(props) {
                         close={() => handleClose("UPDATE_EXERCISE_DIALOG")}
                         exercise={exercise}
                         section={section}
+                        updateExercise={updateExercise}
                     />
                     <Button
                         color="secondary"
@@ -96,13 +97,13 @@ export default function SectionExersiceItem(props) {
                     >
                         Διαγραφή
                     </Button>
-                    {/* <DeleteExersiceDialog
+                    <DeleteExersiceDialog
                         open={openDeleteExersiceDialog}
                         handleClose={() => handleClose("DELETE_EXERCISE_DIALOG")}
                         exercise={exercise}
                         section={section}
-                        training={training}
-                    /> */}
+                        deleteExercise={deleteExercise}
+                    />
                 </ButtonGroup>
             </ListItem>
         </div>

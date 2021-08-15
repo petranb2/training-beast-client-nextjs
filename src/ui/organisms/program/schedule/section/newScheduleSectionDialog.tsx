@@ -8,15 +8,14 @@ import Grid from "@material-ui/core/Grid";
 import { Formik, Field } from "formik";
 import * as Yup from "yup";
 import axiosBeast from "@infra/http/axiosBeast";
+import { InitialScheduleSection } from "@core/program/schedule/section/model/view";
 
 export default function SectionDialog(props) {
   const { training, addSection, open, close } = props;
-  // alert(training)
   const trainingScheduleUUID = training ? training._id : null;
-  const createNewSection = (values, { setSubmitting }) => {
+  const createNewSection = (values: InitialScheduleSection, { setSubmitting }: any) => {
     axiosBeast.post("/schedule/section/create", values).then((res) => {
       const section = res.data;
-      console.log(section);
       addSection(section);
       setSubmitting(false);
       close();
@@ -66,7 +65,7 @@ export default function SectionDialog(props) {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.name}
-                        error={errors.name && touched.name}
+                        error={!!(errors.name && touched.name)}
                         placeholder="Name"
                         label="Name"
                         fullWidth

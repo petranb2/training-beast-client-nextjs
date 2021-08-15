@@ -8,7 +8,7 @@ export interface TrainingScheduleModel {
     createdAt: string,
     updatedAt: string,
     cyclic: boolean,
-    mutliSection: boolean,
+    multiSection: boolean,
     date: string,
     status: string
 }

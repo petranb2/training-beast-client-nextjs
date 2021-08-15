@@ -3,19 +3,18 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Grid from "@material-ui/core/Grid";
 import { Formik, Field } from "formik";
 import * as Yup from "yup";
 import axiosBeast from "@infra/http/axiosBeast";
+import { InitialScheduleSection } from "@core/program/schedule/section/model/view";
 
 export default function SectionDialog(props) {
   const { section, updateSection, open, close } = props;
-  const updateSectionFrom = (values, { setSubmitting }) => {
+  const updateSectionFrom = (values: InitialScheduleSection, { setSubmitting }: any) => {
     axiosBeast.post("/schedule/section/update", values).then((res) => {
       const section = res.data;
-      console.log(section);
       updateSection(section);
       setSubmitting(false);
       close();

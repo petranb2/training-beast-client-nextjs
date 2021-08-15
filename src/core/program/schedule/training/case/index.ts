@@ -1,9 +1,11 @@
 import FetchTrainingsWithDateRange from "./fetchTrainingsWithDateRangeCase";
 import MergeNewTrainingsArrayCase from "./mergeNewTrainingsArrayCase";
 import SetStyleToTrainingEventCase from "./setStyleToTrainingEventCase";
-import FetchTrainingGroupWithUID from "./fetchTrainingsWithDateUIDCase";
+import FetchTrainingGroupWithUID from "./fetchTrainingsWithUIDCase";
 import CompleteTrainingAsScheduleCase from "./completeTrainingAsScheduleCase";
 import ChangeTrainingDate from "./changeTrainingDateCase"
+import CreateTrainingCase from "./createTrainingCase";
+import UpdateTrainingCase from "./updateTrainingCase";
 import { scheduleTrainingsRepo } from "../repo"
 
 const fetchTrainingsWithDateRange = new FetchTrainingsWithDateRange(scheduleTrainingsRepo);
@@ -13,6 +15,10 @@ const fetchTrainingGroupWithUID = new FetchTrainingGroupWithUID(scheduleTraining
 const completeTrainingAsScheduleCase = new CompleteTrainingAsScheduleCase(scheduleTrainingsRepo);
 
 const changeTrainingDate = new ChangeTrainingDate(scheduleTrainingsRepo);
+
+const createTrainingCase = new CreateTrainingCase(scheduleTrainingsRepo);
+
+const updateTrainingCase = new UpdateTrainingCase(scheduleTrainingsRepo);
 
 const mergeNewTrainingsArrayCase = new MergeNewTrainingsArrayCase();
 
@@ -24,5 +30,7 @@ export {
     setStyleToTrainingEventCase,
     fetchTrainingGroupWithUID,
     completeTrainingAsScheduleCase,
-    changeTrainingDate
+    changeTrainingDate,
+    createTrainingCase,
+    updateTrainingCase
 }
