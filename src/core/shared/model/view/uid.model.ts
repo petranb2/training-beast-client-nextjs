@@ -1,4 +1,3 @@
-export interface operation {
-    operation: string,
-    status: string,
+export interface uid {
+    _id: string
 }
