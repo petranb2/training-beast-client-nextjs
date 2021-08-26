@@ -20,9 +20,9 @@ function About({ data }: any) {
           This is the about page
         </Typography>
         <Typography variant="h4" component="h1" gutterBottom>
-          <p>{data.auth}</p>
-          <p>{data.email}</p>
-          <p>{data.displayName}</p>
+          <p>{data?.auth}</p>
+          <p>{data?.email}</p>
+          <p>{data?.displayName}</p>
         </Typography>
       </Box>
     </Container>
