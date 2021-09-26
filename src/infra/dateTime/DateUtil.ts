@@ -39,10 +39,27 @@ class DateUtil implements DateUtilInterface {
 
     /**
      * 
-     * @returns the date in 2021-12-05 format 
+     * @returns the date in 2021-12-05 format from ISO string
      */
     getDateFromISOString = (date: Date): string => {
         return date.toISOString().split('T')[0];
+    }
+
+    /**
+     * 
+     * @returns format a date in 2021-12-05 format YYYY-MM-DD
+     */
+    formatDate(date: Date): string {
+        let month = '' + (date.getMonth() + 1);
+        let day = '' + date.getDate();
+        let year = date.getFullYear();
+
+        if (month.length < 2)
+            month = '0' + month;
+        if (day.length < 2)
+            day = '0' + day;
+
+        return [year, month, day].join('-');
     }
 
 }
