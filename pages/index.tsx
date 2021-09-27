@@ -30,26 +30,17 @@ export default function Index() {
   return (
     <>
       <Grid
-        component='div'
-        style={{
-          fontWeight: 800
-        }}
-      >
+        component='div'>
         <Grid item style={{
-          height: '85vh',
+          // height: '60vh',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'flex-start',
-          position: 'relative'
         }}>
-          <Grid container style={{
-            margin: 'auto', display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'flex-start',
-          }}>
-            <Grid>
+          <Grid style={{ margin: 'auto', }}>
+            <Grid style={{ textAlign: 'center' }}>
               <Typography
-                style={{ margin: 'auto', fontWeight: 800, }}
+                style={{ fontWeight: 'bold', margin: 'auto', color: '#484848', background: 'linear-gradient(180deg, rgba(255,255,255,0) 65%, #66ffa6 65%)', display: 'inline' }}
                 variant="h2"
                 component="h2"
                 gutterBottom
@@ -58,9 +49,9 @@ export default function Index() {
                 Design-Publish-Explore-Schedule
               </Typography>
             </Grid>
-            <Grid>
+            <Grid style={{ textAlign: 'center',marginTop: '24px' }}>
               <Typography
-                style={{ margin: 'auto', fontWeight: 700 }}
+                style={{ fontWeight: 'bold', margin: 'auto', color: '#484848', background: 'linear-gradient(180deg, rgba(255,255,255,0) 65%, #66ffa6 65%)', display: 'inline' }}
                 variant="h2"
                 component="h2"
                 gutterBottom
@@ -69,32 +60,37 @@ export default function Index() {
                 Training Plans
               </Typography>
             </Grid>
-            <Grid>
-              <Typography align='center' style={{ fontWeight: 'bold', color: '#484848', background: 'linear-gradient(180deg, rgba(255,255,255,0) 65%, #66ffa6 65%)', display: 'inline' }} variant="h4" component="h4" gutterBottom>
+            {/* <Grid>
+              <Typography align='center'
+                style={{ fontWeight: 'bold', margin: 'auto', color: '#484848', background: 'linear-gradient(180deg, rgba(255,255,255,0) 65%, #66ffa6 65%)', display: 'inline' }}
+                variant="h4" component="h4" gutterBottom>
                 Design your Training Plans super easy and share it with the community
               </Typography>
-            </Grid>
-            <Grid>
-              <Button color='secondary' variant='contained' size='large'>Start Build Workout Plans</Button>
+            </Grid> */}
+            <Grid style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginTop: '24px'
+            }}>
+              <Button style={{ margin: 'auto' }} color='secondary' variant='outlined' size='large'>Start Build Workout Plans</Button>
             </Grid>
           </Grid>
           <Hidden only={['xs', 'sm']}>
             <Grid style={{ margin: '15px' }} >
-              <img src='.\photo-1589828695526-c461b4ddc158.jpg' style={{
-                height: '46.5rem',
-                minWidth: '31.25rem',
-                opacity: '0.8',
-                boxShadow: '10px 10px 5px rgb(0,178,72)',
-                // position: 'absolute',
-                // right: '150px',
-                // zIndex:-1
-              }} />
+              <img src='.\photo-1589828695526-c461b4ddc158.jpg'
+                style={{
+                  height: '46.5rem',
+                  minWidth: '31.25rem',
+                  opacity: '0.8',
+                  boxShadow: '10px 10px 5px rgb(0,178,72)',
+                }} />
             </Grid>
           </Hidden>
         </Grid>
         <hr style={{
           border: '10px solid #212121',
-          borderRadius: '5px'
+          borderRadius: '5px',
         }} />
         <Grid item>
           <Box border={5} borderRadius={20}>
@@ -149,8 +145,6 @@ export default function Index() {
             </Grid>
           </Box>
         </Grid>
-
-
         <hr style={{
           border: '5px solid #212121',
           borderRadius: '2px'
@@ -208,11 +202,7 @@ export default function Index() {
             </Grid>
           </Box>
         </Grid>
-
-
-
       </Grid>
-
     </>
   );
 }
