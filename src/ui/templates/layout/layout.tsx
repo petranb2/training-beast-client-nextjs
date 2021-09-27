@@ -16,6 +16,10 @@ const useStyles = makeStyles((theme) => ({
 function Template(props: any) {
     let classes = useStyles();
     useEffect(() => { }, [])
+    console.log(props.path)
+    // if(props.path === '/'){
+    //     return (props.children)
+    // }
     return (
         <LayoutProvider>
             <AuthProvider>
