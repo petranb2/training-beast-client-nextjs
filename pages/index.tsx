@@ -43,13 +43,13 @@ export default function Index() {
           position: 'relative'
         }}>
           <Grid container style={{
-            fontWeight: 'bold', margin: 'auto', display: 'flex',
+            margin: 'auto', display: 'flex',
             justifyContent: 'center',
             alignItems: 'flex-start',
           }}>
             <Grid>
               <Typography
-                style={{ margin: 'auto' }}
+                style={{ margin: 'auto', fontWeight: 800, }}
                 variant="h2"
                 component="h2"
                 gutterBottom
@@ -60,7 +60,7 @@ export default function Index() {
             </Grid>
             <Grid>
               <Typography
-                style={{ margin: 'auto' }}
+                style={{ margin: 'auto', fontWeight: 700 }}
                 variant="h2"
                 component="h2"
                 gutterBottom
@@ -86,7 +86,8 @@ export default function Index() {
                 opacity: '0.8',
                 boxShadow: '10px 10px 5px rgb(0,178,72)',
                 // position: 'absolute',
-                // right: '150px'
+                // right: '150px',
+                // zIndex:-1
               }} />
             </Grid>
           </Hidden>
@@ -95,56 +96,121 @@ export default function Index() {
           border: '10px solid #212121',
           borderRadius: '5px'
         }} />
-        <Box border={5} borderRadius={20}>
-          <Grid container style={{
-            fontWeight: 'bold', margin: 'auto', display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'flex-start',
-          }}>
-            <Grid style={{ margin: '15px' }} >
-              <img src='.\search.png' style={{
-                height: '200px',
-                opacity: '0.8'
-              }} />
+        <Grid item>
+          <Box border={5} borderRadius={20}>
+            <Grid container>
+              <Grid item md lg={4} style={{
+                margin: 'auto',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }} >
+                <img src='.\search.png' style={{
+                  height: '200px',
+                  opacity: '0.8'
+                }} />
+              </Grid>
+              <Grid item md lg={8} >
+                <Grid container style={{
+                  margin: 'auto',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'flex-start',
+                }}>
+                  <Grid>
+                    <Typography
+                      style={{ margin: 'auto', fontWeight: 800, }}
+                      variant="h2"
+                      component="h2"
+                      gutterBottom
+                      align='center'
+                      color='textPrimary'>
+                      Design-Publish-Explore-Schedule
+                    </Typography>
+                  </Grid>
+                  <Grid>
+                    <Typography
+                      style={{ margin: 'auto', fontWeight: 700 }}
+                      variant="h2"
+                      component="h2"
+                      gutterBottom
+                      align='center'
+                      color='textPrimary'>
+                      Training Plans
+                    </Typography>
+                  </Grid>
+                  <Grid>
+                    <Typography align='center' style={{ fontWeight: 'bold', color: '#484848', background: 'linear-gradient(180deg, rgba(255,255,255,0) 65%, #66ffa6 65%)', display: 'inline' }} variant="h4" component="h4" gutterBottom>
+                      Design your Training Plans super easy and share it with the community
+                    </Typography>
+                  </Grid>
+                </Grid>
+              </Grid>
             </Grid>
-            <Grid container style={{
-              fontWeight: 'bold', margin: 'auto', display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'flex-start',
-            }}>
-              <Grid>
-                <Typography
-                  style={{ margin: 'auto' }}
-                  variant="h2"
-                  component="h2"
-                  gutterBottom
-                  align='center'
-                  color='textPrimary'>
-                  Design-Publish-Explore-Schedule
-                </Typography>
+          </Box>
+        </Grid>
+
+
+        <hr style={{
+          border: '5px solid #212121',
+          borderRadius: '2px'
+        }} />
+        <Grid item>
+          <Box border={5} borderRadius={20}>
+            <Grid container>
+              <Grid item md lg={8} >
+                <Grid container style={{
+                  margin: 'auto',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'flex-start',
+                }}>
+                  <Grid>
+                    <Typography
+                      style={{ margin: 'auto', fontWeight: 800, }}
+                      variant="h2"
+                      component="h2"
+                      gutterBottom
+                      align='center'
+                      color='textPrimary'>
+                      Design-Publish-Explore-Schedule
+                    </Typography>
+                  </Grid>
+                  <Grid>
+                    <Typography
+                      style={{ margin: 'auto', fontWeight: 700 }}
+                      variant="h2"
+                      component="h2"
+                      gutterBottom
+                      align='center'
+                      color='textPrimary'>
+                      Training Plans
+                    </Typography>
+                  </Grid>
+                  <Grid>
+                    <Typography align='center' style={{ fontWeight: 'bold', color: '#484848', background: 'linear-gradient(180deg, rgba(255,255,255,0) 65%, #66ffa6 65%)', display: 'inline' }} variant="h4" component="h4" gutterBottom>
+                      Design your Training Plans super easy and share it with the community
+                    </Typography>
+                  </Grid>
+                </Grid>
               </Grid>
-              <Grid>
-                <Typography
-                  style={{ margin: 'auto' }}
-                  variant="h2"
-                  component="h2"
-                  gutterBottom
-                  align='center'
-                  color='textPrimary'>
-                  Training Plans
-                </Typography>
-              </Grid>
-              <Grid>
-                <Typography align='center' style={{ fontWeight: 'bold', color: '#484848', background: 'linear-gradient(180deg, rgba(255,255,255,0) 65%, #66ffa6 65%)', display: 'inline' }} variant="h4" component="h4" gutterBottom>
-                  Design your Training Plans super easy and share it with the community
-                </Typography>
-              </Grid>
-              <Grid>
-                <Button color='secondary' variant='contained' size='large'>Start Build Workout Plans</Button>
+              <Grid item md lg={4} style={{
+                margin: 'auto',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }} >
+                <img src='.\growth.png' style={{
+                  height: '200px',
+                  opacity: '0.8'
+                }} />
               </Grid>
             </Grid>
-          </Grid>
-        </Box>
+          </Box>
+        </Grid>
+
+
+
       </Grid>
 
     </>
