@@ -6,10 +6,9 @@ import Link from '@material-ui/core/Link';
 import Container from "@material-ui/core/Container";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import Head from 'next/head';
-import { AuthContext } from "../user/context/authContext";
+// import { AuthContext } from "../user/context/authContext";
 import { LayoutContext } from "./context/layoutContext";
-import AppMenu from "./AppMenu";
-import PublicMenu from "./PublicMenu";
+
 const useStyles = makeStyles((theme: Theme) => ({
     root: {
         flexGrow: 1,
@@ -22,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 function ButtonAppBar() {
     const layoutContext = useContext(LayoutContext);
-    const authContext = useContext(AuthContext);
+
     const classes = useStyles();
     return (
         <div className={classes.root}>
@@ -37,7 +36,7 @@ function ButtonAppBar() {
                             <img alt="dragon" src={'https://files.trainingbeast.co/file/tbc-files/logo/text.png'}  className={classes.logo} width={"247px"}
                                 height={"40px"} />
                         </Link>
-                        {authContext.auth ? <AppMenu /> : <PublicMenu />}
+                        {/* {authContext.auth ? <AppMenu /> : <PublicMenu />} */}
                     </Toolbar>
                 </Container>
             </AppBar>

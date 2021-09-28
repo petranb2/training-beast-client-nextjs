@@ -3,8 +3,13 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 
+type LandingSectionType = {
+    imgURL: string,
+    title: string,
+    description: string,
+}
 
-export default function LandingSection({ imgURL, title, description }) {
+export default function LandingSection({ imgURL, title, description }: LandingSectionType) {
     return (
         <Box style={{ margin: '24px' }}>
             <Grid container  >
