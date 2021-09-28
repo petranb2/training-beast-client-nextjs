@@ -9,6 +9,7 @@ import theme from '../src/ui/theme/theme';
 import Layout from "../src/ui/templates/layout/layout";
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
+import Script from 'next/script'
 
 
 export default function MyApp(props: any) {
@@ -28,8 +29,11 @@ export default function MyApp(props: any) {
       <Head>
         <title>TrainingBeast.co</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-
       </Head>
+      <Script
+        defer src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon=' {"token": "ee6a3f5a77b54c66abcf99d6ab2d7360", "spa": true} '
+      ></Script>
       <ThemeProvider theme={theme}>
         <SnackbarProvider
           maxSnack={3}

@@ -17,7 +17,7 @@
     "dayjs": "^1.10.4",
     "formik": "^2.2.6",
     "moment": "^2.29.1",
-    "next": "latest",
+    "next": "^11.1.2",
     "notistack": "^1.0.8",
     "react": "^17.0.1",
     "react-big-calendar": "^0.33.6",
