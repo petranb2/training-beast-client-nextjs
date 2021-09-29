@@ -60,9 +60,9 @@ export default function Index() {
               <Button style={{ backgroundColor: '#484848', color: '#66FFA6', margin: 'auto', marginBottom: '24px', fontWeight: 900, boxShadow: '5px 5px 5px rgb(0,178,72)' }} color='secondary' variant='contained' size='large'>Join Waiting List</Button>
             </Grid>
           </Grid>
-          <Hidden only={['xs', 'sm']}>
-            <Grid style={{ margin: '15px' }} >
+          <Grid style={{ margin: '15px' }} >
               <img src='.\photo-1589828695526-c461b4ddc158.jpg'
+                className='hideOnSmallScreen'
                 style={{
                   height: '46.5rem',
                   width: '31.25rem',
@@ -70,7 +70,6 @@ export default function Index() {
                   boxShadow: '10px 10px 5px rgb(0,178,72)',
                 }} />
             </Grid>
-          </Hidden>
         </Grid>
         <LandingLine />
         <Grid item>

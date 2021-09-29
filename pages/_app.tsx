@@ -9,6 +9,7 @@ import theme from '../src/ui/theme/theme';
 import Layout from "../src/ui/templates/layout/layout";
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
+import './index.css'
 import Script from 'next/script'
 
 
