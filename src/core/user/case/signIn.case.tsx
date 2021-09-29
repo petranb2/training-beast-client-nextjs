@@ -15,7 +15,7 @@ class SignInCase {
         try {
             let userProfile = await this.userRepo.signIn(userCrediantials);
             return userProfile;
-        } catch (error) {
+        } catch (error: any) {
             if (httpResponseCheck.isUnauthorized(error.response)) {
                 throw new Error(error.response.data.msg);
             }

@@ -13,7 +13,7 @@ class UploadProfileImageCase {
         try {
             let profileImageUrl = await this.profileRepo.uploadProfileImage(image, headers);
             return profileImageUrl;
-        } catch (error) {
+        } catch (error: any) {
             throw new Error("Something Went Wrong");
         }
     }

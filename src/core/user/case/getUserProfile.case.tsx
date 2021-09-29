@@ -13,7 +13,7 @@ class GetUserProfileCase {
         try {
             let userProfile = await this.profileRepo.fetchProfileWithCookie(username, cookie);
             return userProfile;
-        } catch (error) {
+        } catch (error: any) {
             throw new Error("Something Went Wrong");
         }
     }

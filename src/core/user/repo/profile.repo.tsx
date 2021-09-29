@@ -21,7 +21,7 @@ class ProfileRepo implements ProfileRepoInterface {
     async updateSports(sports: string[]): Promise<void> {
         try {
             await this.httpClient.post(ROUTES.UPDATE_SPORTS, { data: { sports: sports } });
-        } catch (error) {
+        } catch (error: any) {
             throw error;
         }
     }
@@ -29,7 +29,7 @@ class ProfileRepo implements ProfileRepoInterface {
     async updateShortBio(shortBio: string): Promise<void> {
         try {
             await this.httpClient.post(ROUTES.UPDATE_SHORTBIO, { data: { shortBio: shortBio } });
-        } catch (error) {
+        } catch (error: any) {
             throw error;
         }
     }
@@ -37,7 +37,7 @@ class ProfileRepo implements ProfileRepoInterface {
     async updateDisplayName(displayName: string): Promise<void> {
         try {
             await this.httpClient.post(ROUTES.UPDATE_DISPLAY_NAME, { data: { displayName: displayName } });
-        } catch (error) {
+        } catch (error: any) {
             throw error;
         }
     }
@@ -45,7 +45,7 @@ class ProfileRepo implements ProfileRepoInterface {
     async updateUsername(username: string): Promise<void> {
         try {
             await this.httpClient.post(ROUTES.UPDATE_USERNAME, { data: { username: username } });
-        } catch (error) {
+        } catch (error: any) {
             throw error;
         }
     }
@@ -55,7 +55,7 @@ class ProfileRepo implements ProfileRepoInterface {
         try {
             let httpResponse = await this.httpClient.post(ROUTES.UPLOAD_PROFILE_IMAGE, { data: image, headers: headers });
             profileImageUrl = httpResponse.data as ProfileImageUrl;
-        } catch (error) {
+        } catch (error: any) {
             throw error;
         }
         return profileImageUrl;
@@ -66,7 +66,7 @@ class ProfileRepo implements ProfileRepoInterface {
         try {
             let httpResponse = await this.httpClient.post(ROUTES.PROFILE_FETCH, { data: { username: username }, headers: { cookie: cookie } });
             userProfile = httpResponse.data as UserProfile;
-        } catch (error) {
+        } catch (error: any) {
             throw error;
         }
         return userProfile;

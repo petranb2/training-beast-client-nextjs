@@ -25,7 +25,7 @@ export default function SignUpForm() {
         try {
             await signUpCase.execute({ email: values.email, password: values.password });
             router.push('/success-sign-up');
-        } catch (error) {
+        } catch (error: any) {
             enqueueSnackbar(error.message, { variant: 'warning' });
         } finally {
             setSubmitting(false);

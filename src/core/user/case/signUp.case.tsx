@@ -15,7 +15,7 @@ class SignUpCase {
     async execute(userCrediantials: UserCrediantials): Promise<void> {
         try {
             await this.userRepo.signUp(userCrediantials);
-        } catch (error) {
+        } catch (error: any) {
             if (httpResponseCheck.hasStatusCode(error.response as HttpResponse, HttpStatusCode.BADREQUEST)) {
                 throw new Error(error.response.data.msg);
             }

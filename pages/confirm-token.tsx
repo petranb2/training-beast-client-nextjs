@@ -29,7 +29,7 @@ export async function getServerSideProps({ query }: any) {
   try {
     await confirmSignUpCase.execute(query.token);
     return { props: { success: true } }
-  } catch (error) {
+  } catch (error: any) {
     return { props: { success: false } }
   }
 

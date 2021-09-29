@@ -35,7 +35,7 @@ export async function getServerSideProps(ctx: any) {
   try {
     res = await HttpClient.get('/users/check-auth', { params: {}, headers: { cookie: ctx.req.headers.cookie } });
     return { props: { data: res.data } }
-  } catch (error) {
+  } catch (error: any) {
 
   }
   console.log('server side about page')

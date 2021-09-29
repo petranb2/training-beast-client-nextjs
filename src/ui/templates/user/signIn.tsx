@@ -24,7 +24,7 @@ export default function SignIn() {
             authContext.updateState({ ...userProfile, isAuthChecked: true });
             enqueueSnackbar('All good to go !!', { variant: 'success' });
             router.push('/home');
-        } catch (error) {
+        } catch (error: any) {
             enqueueSnackbar(error.message, { variant: 'warning' });
 
         } finally {

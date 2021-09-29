@@ -11,7 +11,7 @@ class UpdateDisplayNameCase {
     async execute(displayName: string): Promise<void> {
         try {
             await this.profileRepo.updateDisplayName(displayName);
-        } catch (error) {
+        } catch (error: any) {
             throw new Error("Something Went Wrong");
         }
     }

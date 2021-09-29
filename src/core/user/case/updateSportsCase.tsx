@@ -11,7 +11,7 @@ class UpdateSportsCase {
     async execute(sports: string[]): Promise<void> {
         try {
             await this.profileRepo.updateSports(sports);
-        } catch (error) {
+        } catch (error: any) {
             throw new Error("Something Went Wrong");
         }
     }

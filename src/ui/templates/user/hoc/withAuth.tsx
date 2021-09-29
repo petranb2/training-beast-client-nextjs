@@ -10,7 +10,7 @@ export const withAuth = (Component: any) => {
                 try {
                     let userProfile = await checkUserCase.execute();
                     authContext.updateState({ ...userProfile, isAuthChecked: true });
-                } catch (error) {
+                } catch (error: any) {
                     authContext.updateState({ isAuthChecked: true });
                     // window.location.replace("/");
                 }

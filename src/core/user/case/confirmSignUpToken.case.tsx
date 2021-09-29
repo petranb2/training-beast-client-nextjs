@@ -13,7 +13,7 @@ class ConfirmSignUpTokenCase {
         try {
             await this.userRepo.confirmSignUpToken(token);
 
-        } catch (error) {
+        } catch (error: any) {
             if (httpResponseCheck.isUnauthorized(error.response)) {
                 throw new Error(error.response.data.msg);
             }

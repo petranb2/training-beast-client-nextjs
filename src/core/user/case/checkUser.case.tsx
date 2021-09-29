@@ -14,7 +14,7 @@ class CheckUserCase {
         try {
             let userProfile = await this.userRepo.checkUser();
             return userProfile;
-        } catch (error) {
+        } catch (error: any) {
             if (httpResponseCheck.isUnauthorized(error.response)) {
                 throw new Error(error.response.data.msg);
             }

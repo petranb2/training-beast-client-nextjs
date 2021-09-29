@@ -21,7 +21,7 @@ class UserRepo implements UserRepoInterface {
     async confirmSignUpToken(token: string): Promise<void> {
         try {
             await this.httpClient.get(ROUTES.VALIDATE_SIGNUP_TOKEN, { params: { token: token } });
-        } catch (error) {
+        } catch (error: any) {
             throw error;
         }
     }
@@ -37,7 +37,7 @@ class UserRepo implements UserRepoInterface {
             let httpResponse = await this.httpClient.get(ROUTES.CHECK_AUTH, { params: {} });
             userProfile = httpResponse.data as UserProfile;
 
-        } catch (error) {
+        } catch (error: any) {
             throw error;
         }
         return userProfile;
@@ -50,7 +50,7 @@ class UserRepo implements UserRepoInterface {
             let httpResponse = await this.httpClient.post(ROUTES.SIGNIN, { data: userCredentials });
             userProfile = httpResponse.data as UserProfile;
 
-        } catch (error) {
+        } catch (error: any) {
             throw error;
         }
         return userProfile;
@@ -59,7 +59,7 @@ class UserRepo implements UserRepoInterface {
     async signUp(userCredentials: UserCredentials): Promise<void> {
         try {
             await this.httpClient.post(ROUTES.SIGNUP, { data: userCredentials });
-        } catch (error) {
+        } catch (error: any) {
             throw error;
         }
     }

@@ -11,7 +11,7 @@ class UpdateShortBioCase {
     async execute(shortBio: string): Promise<void> {
         try {
             await this.profileRepo.updateShortBio(shortBio);
-        } catch (error) {
+        } catch (error: any) {
             throw new Error("Something Went Wrong");
         }
     }

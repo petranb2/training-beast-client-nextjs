@@ -14,7 +14,7 @@ class UpdateUsernameCase {
     async execute(username: string): Promise<void> {
         try {
             await this.profileRepo.updateUsername(username);
-        } catch (error) {
+        } catch (error: any) {
             if (httpResponseCheck.hasStatusCode(error.response as HttpResponse, HttpStatusCode.BADREQUEST)) {
                 throw new Error(error.response.data.msg);
             }

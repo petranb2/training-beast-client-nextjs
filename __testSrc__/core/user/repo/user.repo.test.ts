@@ -16,7 +16,7 @@ describe('test the signIn function', () => {
         mockedAxios.post.mockRejectedValue({ response: { status: 401 } });
         try {
             await userRepo.signIn({ email: 'petranb2@gmail.com', password: '122456789' });
-        } catch (error) {
+        } catch (error: any) {
             expect(error.response.status).toBe(401);
         }
     });
@@ -25,7 +25,7 @@ describe('test the signIn function', () => {
         mockedAxios.post.mockRejectedValue({ response: { status: 400 } });
         try {
             await userRepo.signIn({ email: '', password: '' });
-        } catch (error) {
+        } catch (error: any) {
             expect(error.response.status).toBe(400);
         }
     });
@@ -34,7 +34,7 @@ describe('test the signIn function', () => {
         mockedAxios.post.mockRejectedValue({ response: { status: 500 } });
         try {
             await userRepo.signIn({ email: '', password: '' });
-        } catch (error) {
+        } catch (error: any) {
             expect(error.response.status).toBe(500);
         }
     });
@@ -53,7 +53,7 @@ describe('test the signUp function', () => {
         mockedAxios.post.mockRejectedValue({ response: { status: 400 } });
         try {
             await userRepo.signUp(userCredentials);
-        } catch (error) {
+        } catch (error: any) {
             expect(error.response.status).toBe(400);
 
         }
@@ -64,7 +64,7 @@ describe('test the signUp function', () => {
         mockedAxios.post.mockRejectedValue({ response: { status: 500 } });
         try {
             await userRepo.signUp(userCredentials);
-        } catch (error) {
+        } catch (error: any) {
             expect(error.response.status).toBe(500);
 
         }
