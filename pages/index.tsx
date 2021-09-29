@@ -2,7 +2,6 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Grid from '@material-ui/core/Grid';
-import Hidden from '@material-ui/core/Hidden';
 import Button from '@material-ui/core/Button';
 import LandingSection from '@ui/molecules/sections/LandingSection';
 import LandingLine from '@ui/atoms/lines/LandingLine';
