@@ -35,6 +35,7 @@ export default function MyApp(props: any) {
         defer src='https://static.cloudflareinsights.com/beacon.min.js'
         data-cf-beacon=' {"token": "ee6a3f5a77b54c66abcf99d6ab2d7360", "spa": true} '
       ></Script>
+      <Script src="lazysizes.js" async></Script>
       <ThemeProvider theme={theme}>
         <SnackbarProvider
           maxSnack={3}

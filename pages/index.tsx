@@ -60,15 +60,17 @@ export default function Index() {
             </Grid>
           </Grid>
           <Grid style={{ margin: '15px' }} >
-              <img src='.\photo-1589828695526-c461b4ddc158.jpg'
-                className='hideOnSmallScreen'
-                style={{
-                  height: '46.5rem',
-                  width: '31.25rem',
-                  opacity: '0.8',
-                  boxShadow: '10px 10px 5px rgb(0,178,72)',
-                }} />
-            </Grid>
+            <img
+              className='hideOnSmallScreen lazyload'
+              data-src=".\photo-1589828695526-c461b4ddc158.jpg"
+              alt=""
+              style={{
+                height: '46.5rem',
+                width: '31.25rem',
+                opacity: '0.8',
+                boxShadow: '10px 10px 5px rgb(0,178,72)',
+              }} />
+          </Grid>
         </Grid>
         <LandingLine />
         <Grid item>
