@@ -5,11 +5,15 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import LandingSection from '@ui/molecules/sections/LandingSection';
 import LandingLine from '@ui/atoms/lines/LandingLine';
+import WaitingListDialog from '@ui/organisms/waitingList/waitingListDialog';
 
 export default function Index() {
 
   // const classes = useStyles();
   const matches = useMediaQuery('(min-width:600px)');
+
+  const [openWaitingListDialog, setWaitingListDialog] = React.useState(false);
+
   return (
     <>
       <Grid
@@ -56,7 +60,14 @@ export default function Index() {
               alignItems: 'center',
               marginTop: '24px'
             }}>
-              <Button style={{ backgroundColor: '#484848', color: '#66FFA6', margin: 'auto', marginBottom: '24px', fontWeight: 900, boxShadow: '5px 5px 5px rgb(0,178,72)' }} color='secondary' variant='contained' size='large'>Join Waiting List</Button>
+              <Button
+                style={{ backgroundColor: '#484848', color: '#66FFA6', margin: 'auto', marginBottom: '24px', fontWeight: 900, boxShadow: '5px 5px 5px rgb(0,178,72)' }}
+                color='secondary'
+                variant='contained'
+                size='large'
+                onClick={() => setWaitingListDialog(true)}
+              >Join Waiting List</Button>
+              <WaitingListDialog open={openWaitingListDialog} closeWaitingListDialog={() => { setWaitingListDialog(false) }} />
             </Grid>
           </Grid>
           <Grid style={{ margin: '15px' }} >

@@ -36,6 +36,7 @@ export default function MyApp(props: any) {
         data-cf-beacon=' {"token": "ee6a3f5a77b54c66abcf99d6ab2d7360", "spa": true} '
       ></Script>
       <Script src="lazysizes.js" async></Script>
+      <Script src="https://js.hcaptcha.com/1/api.js" async defer></Script>
       <ThemeProvider theme={theme}>
         <SnackbarProvider
           maxSnack={3}
