@@ -18,7 +18,7 @@ type WaitingListDialogType = {
 export default function WaitingListDialog(props: WaitingListDialogType) {
     const { open, closeWaitingListDialog } = props;
     const submitForm = async (values: any, { setSubmitting }: any) => {
-        alert(values);
+        alert(JSON.stringify(values));
         alert(setSubmitting)
         closeWaitingListDialog();
 
