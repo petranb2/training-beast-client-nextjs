@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -9,6 +9,8 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Typography from '@material-ui/core/Typography';
 import { Formik } from 'formik';
 import * as Yup from "yup";
+import HttpClient from "@infra/http/HttpClient";
+import { useTBCSnackBar } from "@ui/templates/layout/hook/useTBCSnackBar";
 
 type WaitingListDialogType = {
     open: boolean,
@@ -16,12 +18,19 @@ type WaitingListDialogType = {
 }
 
 export default function WaitingListDialog(props: WaitingListDialogType) {
+    const { showInfo, showError } = useTBCSnackBar();
     const { open, closeWaitingListDialog } = props;
-    const submitForm = async (values: any, { setSubmitting }: any) => {
-        alert(JSON.stringify(values));
-        alert(setSubmitting)
-        closeWaitingListDialog();
-
+    const [completedForm, setCompletedForm] = useState(false);
+    const submitForm = async (values: any) => {
+        try {
+            await HttpClient.post('/join-waiting-users', { data: values });
+            // closeWaitingListDialog();
+            showInfo('Great you are in our waiting list')
+            setCompletedForm(true)
+        } catch (err: any) {
+            err = err as Error
+            showError(err.message)
+        }
     };
     return (
         <div>
@@ -74,12 +83,12 @@ export default function WaitingListDialog(props: WaitingListDialogType) {
                                         gutterBottom
                                         align='center'
                                         color='textPrimary'>
-                                        Get notified when our first stable version is ready
+                                        {completedForm ? 'Congratulations You are in our waiting list' : 'Get notified when our first stable version is ready'}
                                     </Typography>
                                 </DialogContentText>
                                 <TextField
                                     variant="outlined"
-                                    disabled={isSubmitting}
+                                    disabled={isSubmitting || completedForm}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     value={values.email}
@@ -91,7 +100,6 @@ export default function WaitingListDialog(props: WaitingListDialogType) {
                                     autoComplete="email"
                                     placeholder="email"
                                 />
-                                <div className="h-captcha" data-sitekey="120ec164-4903-4899-bbeb-993ef6864138"></div>
                             </DialogContent>
                             <DialogActions style={{ margin: '12px' }}>
                                 <Button
@@ -99,7 +107,7 @@ export default function WaitingListDialog(props: WaitingListDialogType) {
                                     style={{ backgroundColor: '#484848', color: '#66FFA6', fontWeight: 900, boxShadow: '5px 5px 5px rgb(0,178,72)' }}
                                     variant='contained'
                                     color="primary"
-                                    disabled={isSubmitting}
+                                    disabled={isSubmitting || completedForm}
                                     fullWidth>
                                     submit
                                 </Button>
