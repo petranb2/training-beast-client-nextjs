@@ -29,6 +29,7 @@ export default function MyApp(props: any) {
     <React.Fragment>
       <Head>
         <title>TrainingBeast.co</title>
+        <meta name="keywords" content="fitness, sports, running, lose weight, muscle gain, free workout plans, training plans"></meta>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
       <Script
@@ -36,6 +37,10 @@ export default function MyApp(props: any) {
         data-cf-beacon=' {"token": "ee6a3f5a77b54c66abcf99d6ab2d7360", "spa": true} '
       ></Script>
       <Script src="lazysizes.js" async></Script>
+      {/* <!-- Global site tag (gtag.js) - Google Ads: 795340934 --> */}
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=AW-795340934"></Script>
+      <Script src="googleAds.js" async></Script>
+      {/* <!-- Global site tag (gtag.js) - Google Ads: 795340934 --> */}
       <ThemeProvider theme={theme}>
         <SnackbarProvider
           maxSnack={3}
